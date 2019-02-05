@@ -9,7 +9,9 @@
 %	Y 	= [y1; y2; y3; ... ; ym]
 %
 function w = polyreg(X, Y, degre)
-
-	w = 0; % à modifier !
-  
+    PHI = zeros(size(X,1), degre+1);
+    for k = 1:degre+1
+        PHI(:,k) = X.^k; 
+    end
+    w = PHI\Y;
 end

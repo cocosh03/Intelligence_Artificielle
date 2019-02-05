@@ -37,9 +37,13 @@ plot (Xtest,sinc(Xtest) , 'g', 'LineWidth',3)
 legend('base test', 'base app', 'f_{reg}(x)' );
 
 %% 3) implémenter les fonctions polyreg.m et polypred.m pour la régression polynomiale unidimensionelle
-
-%	-> polyreg.m
-%	-> polypred.m
+    
+    degre = 5;
+    w = polyreg(Xapp, Yapp, degre);
+    Ypred = polypred(Xtest,w);
+    %figure;
+    plot(Xtest, Ypred);
+    axis([-3,3,-1,1.5]);
 	
 %% 4) Réaliser l'apprentissage d'un modèle de degré 5 et calculer les erreurs d'apprentissage et de test
 
